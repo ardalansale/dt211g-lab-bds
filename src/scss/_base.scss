@@ -1,5 +1,6 @@
 /* Base - grundstilar som gäller hela sidan */
-/* Ardalan Reset */
+
+@use 'variables' as *;
 
 /* Box sizing - alla element använder border-box */
 *, *::before, *::after {
@@ -16,11 +17,12 @@ html {
     overflow-y: auto;
 }
 
-/* Grundläggande body-inställningar */
+
 body {
     margin: 0;
     padding: 0;
     line-height: 1.5;
+    font-family: $font-main;
 }
 
 /* Ta bort standard margins från headings, paragraphs osv */

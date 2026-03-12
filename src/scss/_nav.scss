@@ -28,12 +28,14 @@
         li a {
             color: $color-nav-text;
             text-decoration: none;
-            padding: $spacing-sm;
-            border: 0.4rem;
-            transition: background-color 0.2s;
+            padding: $spacing-md;
+            border-radius: 0.4rem;
+            transition: background-color 1.0s, color 1.0s;
             
             &:hover {
                 background-color: $color-primary-dark;
+                color: white;
+                transition: background-color 0.4s, color 0.4s;
             }
         }
     }
@@ -41,11 +43,16 @@
     @media (max-width: $breakpoint-mobile) {
         flex-direction: column;
         align-items: flex-start;
+        gap: $spacing-lg;
 
         &__links {
             flex-direction: column;
             width: 100%;
-            gap: $spacing-sm
+            gap: $spacing-sm;
+
+            li a {
+                padding: $spacing-sm;
+            }
         }
     }
 }

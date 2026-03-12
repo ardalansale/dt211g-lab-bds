@@ -1,10 +1,12 @@
 /* Variables - namngivna lådor där man lagrar värden */
 
+@use 'sass:color';
+
 $color-bg: hsl(0, 0%, 100%);
 $color-text: hsl(0, 0%, 13%);
-$color-primary: hsl(243, 75%, 59%);
-$color-primary-dark: darken($color-primary, 10%);
-$color-primary-dark: lighten($color-primary, 10%);
+$color-primary: hsl(237, 100%, 50%);
+$color-primary-dark: color.adjust($color-primary, $lightness: -10%);
+$color-primary-dark: color.adjust($color-primary, $lightness: 15%);
 $color-nav-bg: $color-bg;
 $color-nav-text: hsl(0, 0%, 0%);
 
