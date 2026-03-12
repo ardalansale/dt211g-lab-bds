@@ -1,0 +1,51 @@
+/* 'as *' gör så att man kan kan använda variablerna direkt med t.ex. '$color-primary' istället för ett längre prefix. */
+/* Utan 'as *' skulle man behöva skriva variables.$color-primary varje gång */
+
+@use 'variables' as *;
+
+
+.navbar {
+    background-color: $color-nav-bg;
+    padding: $spacing-sm $spacing-lg;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo { /* Genom att skriva &__logo behöver du inte skriva .navbar__logo. Detta kallas nesting */
+        img {
+            height: 6.4rem;
+            width: auto;
+        }
+    }
+
+    &__links {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: $spacing-md;
+
+        li a {
+            color: $color-nav-text;
+            text-decoration: none;
+            padding: $spacing-sm;
+            border: 0.4rem;
+            transition: background-color 0.2s;
+            
+            &:hover {
+                background-color: $color-primary-dark;
+            }
+        }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__links {
+            flex-direction: column;
+            width: 100%;
+            gap: $spacing-sm
+        }
+    }
+}

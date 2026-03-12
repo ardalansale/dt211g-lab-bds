@@ -1,0 +1,18 @@
+/* Variables - namngivna lådor där man lagrar värden */
+
+$color-bg: hsl(0, 0%, 100%);
+$color-text: hsl(0, 0%, 13%);
+$color-primary: hsl(243, 75%, 59%);
+$color-primary-dark: darken($color-primary, 10%);
+$color-primary-dark: lighten($color-primary, 10%);
+$color-nav-bg: $color-bg;
+$color-nav-text: hsl(0, 0%, 0%);
+
+$font-main: 'DM Sans', sans-serf;
+$font-size-base: 1rem;
+
+$spacing-sm: 0.4rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+$breakpoint-mobile: 768px;

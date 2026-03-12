@@ -1,0 +1,6 @@
+/* Main - En slags hub som samlar alla SASS-filer på ett ställe */
+/* Man behöver inte skriva med understreck eller filändelse då SASS förstår att det är en partial */
+
+@use 'base'; /* alltid först */
+@use 'variables' as *;
+@use 'nav';

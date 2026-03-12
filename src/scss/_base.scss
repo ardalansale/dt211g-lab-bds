@@ -1,0 +1,88 @@
+/* Base - grundstilar som gäller hela sidan */
+/* Ardalan Reset */
+
+/* Box sizing - alla element använder border-box */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Förhindra oönskad textförstoringspå mobil och reserverar plats för scrollbaren även när den inte behövs, så innehållet flyttar sig aldrig. */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+}
+
+/* Grundläggande body-inställningar */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* Ta bort standard margins från headings, paragraphs osv */
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd {
+    margin: 0;
+}
+
+/* Shorter line-height för headings och interaktiva element */
+h1, h2, h3, h4,
+button, input, label {
+    line-height: 1.1;
+}
+
+/* Text wrapping balans för headings */
+h1, h2, h3, h4 {
+    text-wrap: balance;
+}
+
+// Ta bort bullets från listor med role='list'
+// ul[role='list'],
+// ol[role='list'] {
+//     list-style: none;
+//     padding: 0;
+// }
+
+/* Media-element ska aldrig spränga layouten */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Formelement ärver typografi från parent */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Textareas får rimlig standardstorlek */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Länkarna får smart standardbeteende */
+a:not([class]) {
+    color: currentColor;
+    text-decoration-skip-ink: auto;
+}
+
+/* Extra scroll-margin för ankrade element */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* Smooth-animationer respekterar prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
