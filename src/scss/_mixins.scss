@@ -1,0 +1,44 @@
+/* Mixins - Mixins är som funktioner i SASS. Man skrivera återanvändbara kodbiter en gång och kan sedan använda dem med @include */
+
+@use 'variables' as *;
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin mobile {
+    @media (max-width: $breakpoint-mobile) {
+        @content;
+    }
+}
+
+/* Knappar */
+@mixin button($type: primary) {
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.4s, color 0.4s;
+
+    @if $type == primary {
+        background-color: $color-primary;
+        color: white;
+
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+    } @else {
+        background-color: transparent;
+        color: $color-primary;
+        border: 2px solid $color-primary;
+
+        &:hover {
+            background-color: $color-primary;
+            color: white;
+        }
+    }
+}

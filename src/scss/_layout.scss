@@ -1,6 +1,7 @@
 /* Layout - för sidans stora strukturelement och sektioner */
 
 @use 'variables' as *;
+@use 'mixins' as *;
 
 main {
     display: grid;
@@ -10,7 +11,7 @@ main {
 .wrapper {
     /* Sätter bredden till antingen 1200px eller 100% minus padding på sidorna */
     width: min(1200px, 100% - ($spacing-lg * 2));
-
+    
     /* Centrerar elementet (samma som margin: 0 auto) */
     margin-inline: auto;
 }
@@ -18,7 +19,7 @@ main {
 .hero {
     position: relative;
     max-width: 100%;
-    min-height: 30vh;
+    min-height: 35vh;
     max-height: 80vh; 
     padding: $spacing-md;
     background-image: 
@@ -27,10 +28,7 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center; /* Centrera vertikalt för p */
+    @include flex(row, center, center);
 
     h1 {
     writing-mode: vertical-lr;
@@ -49,12 +47,9 @@ main {
     font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
     }
 
-    @media (max-width: $breakpoint-mobile) {
-    max-height: 300px;  // ← mindre höjd på mobil
-
-
+    @include mobile {
         p {
-        max-width: 200px;
+        width: clamp(12.5rem, -6.25rem + 50vw, 18.75rem);
         }
     }
 }

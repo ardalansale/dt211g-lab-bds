@@ -2,6 +2,7 @@
 /* Utan 'as *' skulle man behöva skriva variables.$color-primary varje gång */
 
 @use 'variables' as *;
+@use 'mixins' as *;
 
 
 .navbar {
@@ -9,23 +10,20 @@
     padding: $spacing-lg 0 $spacing-lg 0; /* wrapper tar hand om sido-paddingen */
 
     .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: $spacing-xl;
+        gap: $spacing-md;
         flex-wrap: wrap;
-        justify-content: center;
+        @include flex(column, center, center);
     }
 
     &__logo { /* Genom att skriva &__logo behöver du inte skriva .navbar__logo. Detta kallas nesting */
         img {
-            height: clamp(4rem, 1.143rem + 7.619vw, 8rem);
+            height: clamp(10rem, 8.571rem + 3.81vw, 12rem);
             width: auto;
         }
     }
 
     &__links {
-        display: flex;
+        @include flex(row, center, center);
         list-style: none;
         padding: 0;
         margin: 0;
@@ -46,14 +44,11 @@
         }
     }
 
-    @media (max-width: $breakpoint-mobile) {
-
+    @include mobile {
     &__links {
         flex-wrap: wrap;
-        justify-content: center;
+        @include flex(column, center, center);
         gap: $spacing-md;
-        flex-direction: column;
-        align-items: center;
 
         li a {
         padding: $spacing-sm;
