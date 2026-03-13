@@ -6,14 +6,20 @@
 
 .navbar {
     background-color: $color-nav-bg;
-    padding: $spacing-sm $spacing-lg;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: $spacing-lg 0 $spacing-lg 0; /* wrapper tar hand om sido-paddingen */
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-xl;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
     &__logo { /* Genom att skriva &__logo behöver du inte skriva .navbar__logo. Detta kallas nesting */
         img {
-            height: 6.4rem;
+            height: clamp(4rem, 1.143rem + 7.619vw, 8rem);
             width: auto;
         }
     }
@@ -41,18 +47,21 @@
     }
 
     @media (max-width: $breakpoint-mobile) {
+
+    &__links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $spacing-md;
         flex-direction: column;
-        align-items: flex-start;
-        gap: $spacing-lg;
+        align-items: center;
 
-        &__links {
-            flex-direction: column;
-            width: 100%;
-            gap: $spacing-sm;
+        li a {
+        padding: $spacing-sm;
+        }
+    }
 
-            li a {
-                padding: $spacing-sm;
-            }
+        &__logo { 
+            display: none;
         }
     }
 }

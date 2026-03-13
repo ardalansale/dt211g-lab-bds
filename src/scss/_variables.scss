@@ -4,9 +4,9 @@
 
 $color-bg: hsl(0, 0%, 100%);
 $color-text: hsl(0, 0%, 13%);
-$color-primary: hsl(237, 100%, 50%);
+$color-primary: hsl(344, 100%, 63%);
 $color-primary-dark: color.adjust($color-primary, $lightness: -10%);
-$color-primary-dark: color.adjust($color-primary, $lightness: 15%);
+$color-primary-light: color.adjust($color-primary, $lightness: 15%);
 $color-nav-bg: $color-bg;
 $color-nav-text: hsl(0, 0%, 0%);
 
@@ -16,5 +16,7 @@ $font-size-base: 1rem;
 $spacing-sm: 0.4rem;
 $spacing-md: 1rem;
 $spacing-lg: 2rem;
+$spacing-xl: 2.5rem;
+
 
 $breakpoint-mobile: 768px;

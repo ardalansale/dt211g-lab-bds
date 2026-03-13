@@ -1,0 +1,60 @@
+/* Layout - för sidans stora strukturelement och sektioner */
+
+@use 'variables' as *;
+
+main {
+    display: grid;
+    gap: $spacing-lg;
+}
+
+.wrapper {
+    /* Sätter bredden till antingen 1200px eller 100% minus padding på sidorna */
+    width: min(1200px, 100% - ($spacing-lg * 2));
+
+    /* Centrerar elementet (samma som margin: 0 auto) */
+    margin-inline: auto;
+}
+
+.hero {
+    position: relative;
+    max-width: 100%;
+    min-height: 30vh;
+    max-height: 80vh; 
+    padding: $spacing-md;
+    background-image: 
+        linear-gradient(to bottom, rgba(120, 46, 0, 0.818), rgba(230, 50, 0, 0.431)),
+        url("../assets/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; /* Centrera vertikalt för p */
+
+    h1 {
+    writing-mode: vertical-lr;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    left: $spacing-md;    
+    }
+
+    p {
+    max-width: 600px;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    color: hsl(0, 0%, 100%);
+    font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+    max-height: 300px;  // ← mindre höjd på mobil
+
+
+        p {
+        max-width: 200px;
+        }
+    }
+}
