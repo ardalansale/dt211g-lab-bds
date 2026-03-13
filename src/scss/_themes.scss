@@ -1,0 +1,27 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* Ljus tema */
+:root {
+    --bg-color: #{$light-bg};
+    --text-color: #{$light-text};
+    --nav-bg: #{$light-nav-bg};
+    --nav-text: #{$light-nav-text};
+}
+
+/* Mörk tema */
+@include dark-mode {
+    :root {
+        --bg-color: #{$dark-bg};
+        --text-color: #{$dark-text};
+        --nav-bg: #{$dark-nav-bg};
+        --nav-text: #{$dark-nav-text};
+    }
+}
+
+/* tillämpa på body */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

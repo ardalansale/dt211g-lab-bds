@@ -4,9 +4,12 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+@use 'variables' as *;
+@use 'mixins' as *;
+
 .navbar {
-    background-color: var(--nav-bg); /* 'var' för att tema ska fungera */
-    padding: $spacing-lg 0 $spacing-lg 0; 
+    background-color: var(--nav-bg);
+    padding: $spacing-lg 0;
 
     .wrapper {
         gap: $spacing-md;
@@ -14,12 +17,26 @@
         @include flex(column, center, center);
     }
 
-    &__logo { 
-        
-        img {
+    &__logo {
+            img {
             height: clamp(10rem, 8.571rem + 3.81vw, 12rem);
             width: auto;
-            content: url('/src/assets/bds-light.svg');
+            }
+
+            .logo-light { 
+            display: inline; 
+            }
+            .logo-dark { 
+            display: none; 
+        }
+
+        @include dark-mode {
+            .logo-light { 
+                display: none; 
+            }
+            .logo-dark { 
+                display: inline; 
+            }
         }
     }
 
@@ -29,23 +46,23 @@
         padding: 0;
         margin: 0;
         gap: $spacing-md;
-        
+
         li a {
-            color: var(--nav-text); /* 'var' för att tema ska fungera */
+            color: var(--nav-text);
             text-decoration: none;
             padding: $spacing-md;
             border-radius: 0.4rem;
             transition: background-color 1.0s, color 1.0s;
-            
+
             &:hover {
-                // Denna kan vara kvar som SASS-variabel då den är en accentfärg
-                background-color: $color-primary-dark; 
+                background-color: $color-primary-dark;
                 color: white;
                 transition: background-color 0.4s, color 0.4s;
             }
         }
     }
 
+  /* Mobilanpassning */
     @include mobile {
         &__links {
             flex-wrap: wrap;
@@ -57,7 +74,7 @@
             }
         }
 
-        &__logo { 
+            &__logo {
             display: none;
         }
     }

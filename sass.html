@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SASS</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="wrapper">
+                <a href="index.html" class="navbar__logo">
+                    <img src="src/assets/bds-light.svg" class="logo-light" alt="Boteh Design Studio"/>
+                    <img src="src/assets/bds-dark.svg" class="logo-dark" alt="Boteh Design Studio"/>
+                </a>
+
+                <ul class="navbar__links">
+                    <li><a href="index.html">Hem</a></li>
+                    <li><a href="sass.html">SASS</a></li>
+                    <li><a href="#">Tjänster</a></li>
+                    <li><a href="#">Om</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="wrapper">
+        <section class="evaluation">
+            <h1>Att arbeta med SASS</h1>
+            <p class="text-body">SASS har känts som något jag har behövt under hela utbildningen. Jag är pedantisk och älskar att sortera och organisera saker, och med SASS och dess filstruktur försvann mycket av stressen kring att arbeta med CSS. Att dela upp koden i separata filer med tydliga ansvarsområden kändes omedelbart rätt för mig.
+Att skapa återanvändbara kodbitar som mixins och variabler kändes extremt naturligt då det påminner om hur jag jobbade med musik, där man skapar ett meloditema som återkommer flera gånger men med olika instrument. SASS fungerar på samma sätt: du definierar något en gång och återanvänder det i olika sammanhang.</p>
+                <div>
+            <p class="text-heading">Fördelar</p> 
+            <p class="text-body">Den tydliga filstrukturen med partials tyckte jag gjorde koden lätt att navigera och underhålla. Variabler, mixins och @extend eliminerar upprepning och gör det enkelt att göra globala ändringar. För mig som gillar ordning och struktur är SASS ett naturligt sätt att arbeta.</p>
+            </div>
+            <div>
+            <p class="text-heading">Nackdelar</p>
+            <p class="text-body">Nesting är något jag är lite osäker på hur jag riktigt känner gentemot. Det kan vara smidigt för 2–3 nivåer, men djup nesting riskerar att bli svårlästJag föredrar BEM-metodiken eftersom den ger samma tydliga struktur utan att man behöver nesta.
+En annan reflektion är att mycket av det SASS erbjuder faktiskt går att uppnå med modern CSS i kombination med Vite t.ex. flera CSS-filer som importeras via en main.css och sedan main.js. Det är något jag vill utforska vidare i framtida projekt för att se hur de två metoderna skiljer sig i praktiken.</p>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

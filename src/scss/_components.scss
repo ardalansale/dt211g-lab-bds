@@ -1,0 +1,61 @@
+/* Components - Well, Ardi detta känner du igen sen innan */
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'sass:color';
+
+%btn {
+    display: inline-block;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-base;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: $font-main;
+}
+
+.btn-primary {
+    @extend %btn;
+    background-color: $color-primary;
+    color: white;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+}
+
+.btn-secondary {
+    @extend %btn;
+    background-color: gray;
+    color: white;
+
+    &:hover {
+        background-color: color.adjust(gray, $lightness: -10%);
+    }
+}
+
+/* if/else-sats (krav) */
+@mixin text-style($type) {
+    @if $type == 'heading' {
+        font-size: 1rem;
+        font-weight: 700;
+    } @else if $type == 'body' {
+        font-size: 1rem;
+        line-height: 1.6;
+    } @else {
+        font-size: 0.8rem;
+        font-style: italic;
+    }
+}
+
+.text-heading {
+    @include text-style('heading');
+}
+
+.text-body {
+    @include text-style('body');
+}

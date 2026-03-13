@@ -15,7 +15,13 @@
     }
 }
 
-/* Knappar */
+/* Dark mode */
+@mixin dark-mode {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
 @mixin button($type: primary) {
     padding: $spacing-sm $spacing-md;
     border: none;
@@ -25,20 +31,20 @@
     transition: background-color 0.4s, color 0.4s;
 
     @if $type == primary {
+    background-color: $color-primary;
+    color: white;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+    } @else {
+    background-color: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+
+        &:hover {
         background-color: $color-primary;
         color: white;
-
-        &:hover {
-            background-color: $color-primary-dark;
-        }
-    } @else {
-        background-color: transparent;
-        color: $color-primary;
-        border: 2px solid $color-primary;
-
-        &:hover {
-            background-color: $color-primary;
-            color: white;
         }
     }
 }

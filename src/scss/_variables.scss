@@ -1,32 +1,32 @@
 /* Variables - namngivna lådor där man lagrar värden */
 @use 'sass:color';
 
-/* Ljust tema (Standard) */
+/* Ljus tema */
 $light-bg: hsl(0, 0%, 100%);
 $light-text: hsl(0, 0%, 13%);
 $light-nav-bg: hsl(0, 0%, 100%);
 $light-nav-text: hsl(0, 0%, 0%);
 
-/*  Mörkt tema */
-$dark-bg: hsl(0, 0%, 10%);
+/* Mörkt tema */
+$dark-bg: hsl(0, 0%, 5%);
 $dark-text: hsl(0, 0%, 90%);
-$dark-nav-bg: hsl(0, 0%, 15%);
+$dark-nav-bg: hsl(0, 0%, 5%);
 $dark-nav-text: hsl(0, 0%, 100%);
 
-/* Primärfärger (Används i båda teman) */
+/* Primärfärger */
 $color-primary: hsl(344, 100%, 63%);
 $color-primary-dark: color.adjust($color-primary, $lightness: -10%);
 $color-primary-light: color.adjust($color-primary, $lightness: 15%);
 
-/* Typsnitt & Storlekar */
+/* Typsnitt */
 $font-main: 'DM Sans', sans-serif;
 $font-size-base: 1rem;
 
-//*  Spacing */
+/* Spacing */
 $spacing-sm: 0.4rem;
 $spacing-md: 1rem;
 $spacing-lg: 2rem;
 $spacing-xl: 2.5rem;
 
-/*  Breakpoints */
+/* Breakpoints */
 $breakpoint-mobile: 768px;

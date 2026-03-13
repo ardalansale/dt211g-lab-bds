@@ -31,25 +31,41 @@ main {
     @include flex(row, center, center);
 
     h1 {
-    writing-mode: vertical-lr;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    position: absolute;
-    left: $spacing-md;    
+        writing-mode: vertical-lr;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        position: absolute;
+        left: $spacing-md;    
     }
 
     p {
-    max-width: 600px;
-    text-align: center;
-    align-self: center;
-    justify-self: center;
-    color: hsl(0, 0%, 100%);
-    font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
+        max-width: 600px;
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+        color: hsl(0, 0%, 100%);
+        font-size: clamp(1rem, 0.643rem + 0.952vw, 1.5rem);
     }
 
     @include mobile {
         p {
         width: clamp(12.5rem, -6.25rem + 50vw, 18.75rem);
         }
+    }
+}
+
+.evaluation {
+    @include flex(column, center, center);
+    gap: $spacing-md;
+    max-width: 100%;
+    min-height: 35vh;
+    max-height: 80vh; 
+    padding: $spacing-sm;
+
+    p {
+        max-width: 50ch;
+        align-self: center;
+        justify-self: center;
+        color: hsl(0, 0%, 100%);
     }
 }
