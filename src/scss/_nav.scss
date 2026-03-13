@@ -4,10 +4,9 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-
 .navbar {
-    background-color: $color-nav-bg;
-    padding: $spacing-lg 0 $spacing-lg 0; /* wrapper tar hand om sido-paddingen */
+    background-color: var(--nav-bg); /* 'var' för att tema ska fungera */
+    padding: $spacing-lg 0 $spacing-lg 0; 
 
     .wrapper {
         gap: $spacing-md;
@@ -15,10 +14,12 @@
         @include flex(column, center, center);
     }
 
-    &__logo { /* Genom att skriva &__logo behöver du inte skriva .navbar__logo. Detta kallas nesting */
+    &__logo { 
+        
         img {
             height: clamp(10rem, 8.571rem + 3.81vw, 12rem);
             width: auto;
+            content: url('/src/assets/bds-light.svg');
         }
     }
 
@@ -28,16 +29,17 @@
         padding: 0;
         margin: 0;
         gap: $spacing-md;
-
+        
         li a {
-            color: $color-nav-text;
+            color: var(--nav-text); /* 'var' för att tema ska fungera */
             text-decoration: none;
             padding: $spacing-md;
             border-radius: 0.4rem;
             transition: background-color 1.0s, color 1.0s;
             
             &:hover {
-                background-color: $color-primary-dark;
+                // Denna kan vara kvar som SASS-variabel då den är en accentfärg
+                background-color: $color-primary-dark; 
                 color: white;
                 transition: background-color 0.4s, color 0.4s;
             }
@@ -45,15 +47,15 @@
     }
 
     @include mobile {
-    &__links {
-        flex-wrap: wrap;
-        @include flex(column, center, center);
-        gap: $spacing-md;
+        &__links {
+            flex-wrap: wrap;
+            @include flex(column, center, center);
+            gap: $spacing-md;
 
-        li a {
-        padding: $spacing-sm;
+            li a {
+                padding: $spacing-sm;
+            }
         }
-    }
 
         &__logo { 
             display: none;
