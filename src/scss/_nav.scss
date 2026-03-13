@@ -18,16 +18,16 @@
     }
 
     &__logo {
-            img {
-            height: clamp(10rem, 8.571rem + 3.81vw, 12rem);
-            width: auto;
+        img {
+        height: clamp(10rem, 8.571rem + 3.81vw, 12rem);
+        width: auto;
             }
 
-            .logo-light { 
-            display: inline; 
-            }
-            .logo-dark { 
-            display: none; 
+        .logo-light { 
+        display: inline; 
+        }
+        .logo-dark { 
+        display: none; 
         }
 
         @include dark-mode {
