@@ -18,12 +18,11 @@ main {
 
 .hero {
     position: relative;
-    max-width: 100%;
-    min-height: 35vh;
-    max-height: 80vh; 
-    padding: $spacing-md;
+    width: 100%;
+    min-height: 35dvh;
+    padding: $spacing-xl;
     background-image: 
-        linear-gradient(to bottom, rgba(120, 46, 0, 0.818), rgba(230, 50, 0, 0.431)),
+        linear-gradient(to bottom, rgb(0, 72, 99), rgba(47, 10, 0, 0.281)),
         url("../assets/hero.jpg");
     background-position: center;
     background-repeat: no-repeat;
