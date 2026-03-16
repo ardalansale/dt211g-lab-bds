@@ -1,0 +1,18 @@
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeSlideUp 1.7s ease-out both;
+
+    &--delay {
+        animation-delay: 0.2s;
+    }
+}

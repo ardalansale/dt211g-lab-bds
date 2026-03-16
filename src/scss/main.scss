@@ -3,6 +3,7 @@
 
 @use 'base'; /* alltid först */
 @use 'variables' as *;
+@use 'animations' as *;
 @use 'mixins' as *;
 @use 'themes';
 @use 'layout';
