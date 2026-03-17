@@ -23,7 +23,10 @@ main {
     padding: $spacing-xl;
     background-image: 
         linear-gradient(to bottom, rgb(0, 72, 99), rgba(47, 10, 0, 0.281)),
-        url("../assets/hero.jpg");
+        image-set(
+            url('../assets/hero.webp') type('image/webp'),
+            url('../assets/hero.jpg') type('image/jpeg')
+            ),
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
