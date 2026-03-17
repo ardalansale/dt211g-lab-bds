@@ -1,4 +1,8 @@
-@keyframes fadeSlideUp {
+/* Animations - animationer som går att återanvända */
+@use 'mixins' as *; /* För knapp-animationen*/
+
+/* Fade in effekt */
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(32px);
@@ -10,9 +14,36 @@
 }
 
 .fade-in {
-    animation: fadeSlideUp 1.7s ease-out both;
+    animation: fadeIn 1.7s ease-out both;
 
     &--delay {
         animation-delay: 0.2s;
     }
+}
+
+/* Rörliga objekt */
+@keyframes floatAround {
+    from { transform: translateX(0); }
+    to   { transform: translateX(100px); }
+}
+
+.animation-floating {
+    padding: 4rem 0;
+}
+
+.floating-shape {
+    width: 10rem;
+    height: 10rem;
+    background-color: hsla(207, 100%, 50%, 0.526);
+    border-radius: 50%;
+    animation: floatAround 2s ease-in-out infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animation-btn {
+  &:hover {
+    transform: scale(1.1);
+  }
 }
