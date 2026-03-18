@@ -30,22 +30,22 @@
     </header>
     
     <div class="wrapper">
-        <section class="animation-hero"> <!-- Fade in effekt/animering -->
-            <h1 class="fade-in">Animeringar</h1>
-            <p class="text-body fade-in fade-in--delay">CSS-animeringar byggda med @keyframes, transition och transform.</p>
-            <p class="text-body fade-in fade-in--delay">Tjusigt med fade in va?</p>
-        </section>
+        <div class="charts">
+            <h1>Antagningsstatistik HT2025</h1>
 
-        <section class="animation-floating"> <!-- Float/sväv-effekt -->
-            <div class="floating-shape">
-                <p class="text-heading">Back and forth...</p>
-            </div>
-        </section>
+            <section> <!-- Stapeldiagram -->
+                <h2>De 6 mest sökta kurserna</h2>
+                <canvas id="bar-chart"></canvas>
+            </section>
 
-        <section>
-            <button class="btn-primary animation-btn">Jag växer</button> <!-- Förstoringseffekt -->
-        </section>
+            <section> <!-- Cirkeldiagram -->
+                <h2>De 5 mest söka programmen</h2>
+                <canvas id="pie-chart"></canvas>
+            </section>
+
+        </div>
     </div>
+
     <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
