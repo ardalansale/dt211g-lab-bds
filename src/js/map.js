@@ -12,8 +12,8 @@ async function searchLocation() {
     const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${input}&format=json`);
     const data = await response.json();
 
-    const lat = data[0].lat;
-    const lon = data[0].lon;
+    const lat = parseFloat(data[0].lat);
+    const lon = parseFloat(data[0].lon);
     const iframe = document.getElementById("map");
     iframe.src = `https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.01},${lat-0.01},${lon+0.01},${lat+0.01}&marker=${lat},${lon}`;
 }
