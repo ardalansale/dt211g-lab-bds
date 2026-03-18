@@ -30,23 +30,22 @@
     </header>
     
     <div class="wrapper">
-        <div class="charts">
-            <h1>Antagningsstatistik HT2025</h1>
+        <div class="maps">
+            <h1>Karta</h1>
 
-            <section> <!-- Stapeldiagram -->
-                <h2>De 6 mest sökta kurserna</h2>
-                <canvas id="bar-chart"></canvas>
+            <section> <!-- Sökfunktion -->
+                <input type="text" id="search-input" placeholder="Skriv område eller stad" />
+                <button id="search-btn" class="btn-secondary">Sök</button>
             </section>
 
-            <section> <!-- Cirkeldiagram -->
-                <h2>De 5 mest söka programmen</h2>
-                <canvas id="pie-chart"></canvas>
+            <section> <!-- Karta -->
+                <iframe id="map" src="" width="100%" height="450" loading="lazy"></iframe>
             </section>
 
         </div>
     </div>
 
     <script type="module" src="/src/js/main.js"></script>
-    <script type="module" src="/src/js/chart.js"></script>
+    <script type="module" src="/src/js/map.js"></script>
 </body>
 </html>
