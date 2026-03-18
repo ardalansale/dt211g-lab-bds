@@ -2,8 +2,9 @@
 
 /* JSDoc-kommentarer */
 /**
-* @file maps.js
-* @description Söker efter en plats med Nominatim API och visar den på en OpenStreetMap-iframe.
+* Söker efter en stad med Nominatim API och visar den på en OpenStreetMap-iframe.
+* @async
+* @returns {Promise<void>}
 */
 
 async function searchLocation() {

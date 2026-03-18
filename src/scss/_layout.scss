@@ -71,3 +71,18 @@ main {
         color: var(--text-color);
     }
 }
+
+.charts {
+    @include flex(column, center, stretch);
+    gap: $spacing-xl;
+}
+
+.maps {
+    @include flex(column, center, stretch);
+    gap: $spacing-sm;
+
+        iframe {
+            margin-top: 1rem;
+        }
+
+}
