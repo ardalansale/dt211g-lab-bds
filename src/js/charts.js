@@ -1,53 +1,82 @@
-/* Funktion för att hämta data för stapeldiagram(bar-chart) och cirkeldiagram(pie-chart) */
-
-import Chart from "chart.js/auto"; /*  Registrerar alla diagramtyper automatiskt så man slipper konfigurera något extra */
-
-/* JSDoc-kommentarer */
 /**
-*  Hämtar antagningsstatistik från HT25 och skapar ett stapeldiagram och ett cirkeldiagram.
-*  @async
-*  @returns {Promise<void>}
-*/
-
-async function loadCharts() {
-
+ * Hämtar antagningsstatistik från HT25.
+ * Filtrerar ut kurser och program, sorterar dem och returnerar de mest sökta.
+ * @async
+ * @returns {Promise<{courses: Object[], programs: Object[]}>}
+ */
+async function fetchAdmissionData() {
     const response = await fetch("https://mallarmiun.github.io/Frontend-baserad-webbutveckling/Moment%205%20-%20Dynamiska%20webbplatser/statistik_sokande_ht25.json");
     const data = await response.json();
-    const courses = data.filter(item => item.type === "Kurs");
-    const program = data.filter(item => item.type === "Program");
 
-    courses.sort((a, b) => parseInt(b.applicantsTotal) - parseInt(a.applicantsTotal));
-    program.sort((a, b) => parseInt(b.applicantsTotal) - parseInt(a.applicantsTotal));
+    const courses = data
+        .filter(item => item.type === "Kurs")
+        .sort((a, b) => parseInt(b.applicantsTotal) - parseInt(a.applicantsTotal))
+        .slice(0, 6);
 
-    const topCourses = courses.slice(0, 6);
-    const topProgram = program.slice(0, 5);
+    const programs = data
+        .filter(item => item.type === "Program")
+        .sort((a, b) => parseInt(b.applicantsTotal) - parseInt(a.applicantsTotal))
+        .slice(0, 5);
 
-    const courseNames = topCourses.map(item => item.name);
-    const courseApplicants = topCourses.map(item => parseInt(item.applicantsTotal));
+    return { courses, programs };
+}
 
-    const programNames = topProgram.map(item => item.name);
-    const programApplicants = topProgram.map(item => parseInt(item.applicantsTotal));
+/**
+ * Skapar ett stapeldiagram med de mest sökta kurserna.
+ * @param {string} elementId - ID för canvas-elementet.
+ * @param {string[]} labels - Kursnamn.
+ * @param {number[]} values - Antal sökande.
+ */
+function createBarChart(elementId, labels, values) {
+    new Chart(document.getElementById(elementId), {
+        type: "bar",
+        data: {
+            labels,
+            datasets: [{
+                label: "Totalt antal sökande",
+                data: values
+            }]
+        }
+    });
+}
 
-    /* Skicka data till stapeldiagrammet */
-    new Chart(document.getElementById("bar-chart"), {
-    type: "bar",
-    data: {
-        labels: courseNames,
-        datasets: [{
-        label: "Totalt antal sökande",
-        data: courseApplicants
-        }]
-    }});
+/**
+ * Skapar ett cirkeldiagram med de mest sökta programmen.
+ * @param {string} elementId - ID för canvas-elementet.
+ * @param {string[]} labels - Programnamn.
+ * @param {number[]} values - Antal sökande.
+ */
+function createPieChart(elementId, labels, values) {
+    new Chart(document.getElementById(elementId), {
+        type: "pie",
+        data: {
+            labels,
+            datasets: [{
+                data: values
+            }]
+        }
+    });
+}
 
-    /* Skicka data till cirkeldiagrammet */
-    new Chart(document.getElementById("pie-chart"), {
-    type: "pie",
-    data: {
-        labels: programNames,
-        datasets: [{
-        data: programApplicants
-        }]
-    }});
+/**
+ * Laddar data och genererar båda diagrammen.
+ * @async
+ * @returns {Promise<void>}
+ */
+async function loadCharts() {
+    const { courses, programs } = await fetchAdmissionData();
+
+    createBarChart(
+        "bar-chart",
+        courses.map(c => c.name),
+        courses.map(c => parseInt(c.applicantsTotal))
+    );
+
+    createPieChart(
+        "pie-chart",
+        programs.map(p => p.name),
+        programs.map(p => parseInt(p.applicantsTotal))
+    );
 }
 
 document.addEventListener("DOMContentLoaded", loadCharts);
