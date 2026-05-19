@@ -1,3 +1,7 @@
+/* Funktion för att hämta data för stapeldiagram(bar-chart) och cirkeldiagram(pie-chart) */
+
+import Chart from "chart.js/auto"; /*  Registrerar alla diagramtyper automatiskt så man slipper konfigurera något extra */
+
 /**
  * Hämtar antagningsstatistik från HT25.
  * Filtrerar ut kurser och program, sorterar dem och returnerar de mest sökta.

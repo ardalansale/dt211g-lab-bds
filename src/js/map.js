@@ -1,3 +1,6 @@
+/* Funktion för att hämta och visa kartdata för kartan */
+
+
 /**
  * Hämtar koordinater för en plats via Nominatim API.
  * @async
